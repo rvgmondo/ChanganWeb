@@ -1,0 +1,60 @@
+/*
+ * Changan Pretoria design tokens.
+ *
+ * Colour comes from changanmotors.co.za (Changan Blue #0B457F) and the 2026 "Driven to Evolve"
+ * campaign art (sky, peach, coral, dusk). Type is the brand face ChangAnunitype for display and
+ * Noto Sans for text, as on the national site. Every value the components use lives here.
+ */
+@theme {
+  /* ---- colour ---- */
+  --color-blue: #0b457f;
+  --color-blue-deep: #062949;
+  --color-blue-ink: #0a1b2e;
+  --color-sky: #9cc6e6;
+  --color-sky-deep: #78acd8;
+  --color-peach: #f6c3a2;
+  --color-coral: #ef7f5c;
+  --color-sunset: #f39c74;
+  --color-dusk: #c7b6e2;
+  --color-paper: #f3f5f8;
+  --color-paper-2: #e8edf3;
+  --color-mute: #5b6878;
+  --color-line: rgb(10 27 46 / 0.12);
+  --color-glass: rgb(255 255 255 / 0.42);
+  --color-whatsapp: #1fae5b;
+
+  /* ---- type ---- */
+  --font-display: var(--font-changan), "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-noto), "Helvetica Neue", Arial, sans-serif;
+
+  /* Fluid scale: tiny labels to the hero wordmark. Large contrast is the point. */
+  --text-label: 0.6875rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: clamp(1rem, 0.9rem + 0.4vw, 1.1875rem);
+  --text-h4: clamp(1.25rem, 1rem + 0.9vw, 1.75rem);
+  --text-h3: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  --text-h2: clamp(2.25rem, 1.1rem + 4.6vw, 5.75rem);
+  --text-h1: clamp(2.5rem, 1rem + 5vw, 5.75rem);
+  --text-mega: clamp(5.5rem, 15vw, 17.5rem);
+
+  --tracking-label: 0.24em;
+  --tracking-display: 0.02em;
+
+  /* ---- space ---- */
+  --spacing-gutter: clamp(1rem, 4vw, 4rem);
+  --spacing-section: clamp(5.5rem, 12vw, 10.5rem);
+
+  /* ---- radius ---- */
+  --radius-card: 1.125rem;
+  --radius-panel: 1.5rem;
+  --radius-pill: 999px;
+
+  /* ---- motion: one easing language, one timing scale ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.7, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.6, 0, 0.9, 0.4);
+  --duration-fast: 350ms;
+  --duration-med: 800ms;
+  --duration-slow: 1300ms;
+}

@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output. Built by GitHub Actions and published to the `deploy` branch, never on main.
+.next/
+*.tsbuildinfo
+next-env.d.ts
+
+# The database: one SQLite file holding all stock, leads and content.
+*.db
+*.db-shm
+*.db-wal
+
+# Uploaded media. Runtime data. Production media can live on Cloudflare R2.
+media/
+
+# Environment. Never commit real secrets.
+.env
+.env.local
+!.env.example
+
+# Test output
+test-results/
+playwright-report/
+
+.DS_Store
+npm-debug.log*
