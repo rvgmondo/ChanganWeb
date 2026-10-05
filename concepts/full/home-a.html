@@ -109,32 +109,45 @@ body{background:var(--bg);color:var(--ink)}
 .btn.pri:hover{background:var(--blue-deep)}
 .btn.wht{background:#fff;color:var(--blue-deep)}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;height:100svh;min-height:680px;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#7fb3dc 0%,#b9d3ea 30%,#f3cdb5 52%,#f29a72 61%,#f6ddd0 64%,#f4f6f9 80%,#e8edf3 100%)}
-.h-sun{position:absolute;left:50%;top:58%;width:80vw;height:46vw;translate:-50% -50%;background:radial-gradient(closest-side,rgba(255,214,170,.9),rgba(255,170,120,.35) 45%,transparent 75%);pointer-events:none}
-.h-floor{position:absolute;inset:63% 0 0 0;background:repeating-linear-gradient(90deg,rgba(11,69,127,.05) 0 1px,transparent 1px 120px);-webkit-mask-image:linear-gradient(180deg,#000,transparent);mask-image:linear-gradient(180deg,#000,transparent);pointer-events:none}
-.h-scene{position:absolute;inset:0;perspective:1300px;perspective-origin:50% 48%;pointer-events:none}
-.h-rig{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
-.h-rig>*{position:absolute;transform-style:preserve-3d}
-.h-word{left:50%;top:47%;font-family:var(--f-disp);font-weight:700;font-size:clamp(90px,15.5vw,290px);line-height:1;letter-spacing:.03em;color:#fff;white-space:nowrap;text-shadow:0 30px 80px rgba(239,127,92,.35)}
-.h-word small{position:absolute;left:.08em;top:-.05em;font-size:.09em;letter-spacing:.3em;font-weight:400}
-.pan{pointer-events:auto;cursor:pointer;border-radius:4px;-webkit-box-reflect:below 14px linear-gradient(transparent 62%,rgba(255,255,255,.3))}
-.pan .g{position:relative;width:100%;height:100%;border-radius:4px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(6,41,73,.45),inset 0 0 0 1px rgba(255,255,255,.6)}
-.pan img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--e-out)}
-.pan .g::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.08) 28%,transparent 45%,rgba(255,255,255,.12) 75%,rgba(255,255,255,.4) 100%);mix-blend-mode:screen;pointer-events:none}
-.pan .t{position:absolute;left:0;right:0;bottom:0;padding:14px 12px 12px;background:linear-gradient(0deg,rgba(6,41,73,.75),transparent);color:#fff;font-family:var(--f-disp);font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:flex;justify-content:space-between;opacity:0;transform:translateY(8px);transition:.5s var(--e-out)}
-.pan:hover .t{opacity:1;transform:none}
-.pan:hover img{transform:scale(1.07)}
-.h-car{left:58%;top:76%;width:min(44vw,720px);-webkit-box-reflect:below -6px linear-gradient(transparent 70%,rgba(255,255,255,.28))}
-.h-car img{width:100%;filter:drop-shadow(0 18px 18px rgba(6,41,73,.25))}
-.h-cap{position:absolute;z-index:5;left:var(--gut);bottom:clamp(70px,10vh,110px);display:grid;gap:16px;max-width:380px}
-.h-cap .m{font-family:var(--f-disp);font-weight:700;font-size:clamp(24px,2.3vw,36px);letter-spacing:.05em;color:var(--blue-deep);line-height:1.05}
-.h-cap .m small{display:block;font-weight:400;font-size:12px;letter-spacing:.16em;color:var(--mute);margin-top:8px}
-.h-cap .row{display:flex;gap:10px;flex-wrap:wrap}
-.h-side{position:absolute;z-index:5;right:var(--gut);bottom:clamp(70px,10vh,110px);text-align:right;font-family:var(--f-disp);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep);line-height:2}
-.h-scroll{position:absolute;z-index:5;left:50%;bottom:22px;translate:-50% 0;width:1px;height:46px;background:rgba(6,41,73,.2);overflow:hidden}
-.h-scroll::after{content:"";position:absolute;left:0;top:0;width:1px;height:40%;background:var(--blue-deep);animation:drip 2s var(--e-io) infinite}
-@keyframes drip{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+/* ---------- HERO: the world in glass slats ---------- */
+.hero{position:relative;height:100svh;min-height:720px;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#78acd8 0%,#b5d0ea 28%,#f1cdb6 50%,#f39c74 60%,#f7dccd 63.5%,#f4f6f9 80%,#e6ecf3 100%)}
+.h-sun{position:absolute;left:50%;top:58%;width:90vw;height:50vw;translate:-50% -50%;background:radial-gradient(closest-side,rgba(255,214,170,.95),rgba(255,170,120,.35) 45%,transparent 75%);pointer-events:none}
+.h-floor{position:absolute;inset:63% 0 0 0;background:repeating-linear-gradient(90deg,rgba(11,69,127,.06) 0 1px,transparent 1px 110px);-webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);mask-image:linear-gradient(180deg,#000,transparent 80%);transform:perspective(600px) rotateX(55deg);transform-origin:50% 0;pointer-events:none}
+.h-word{position:absolute;z-index:1;left:50%;top:25%;translate:-50% -50%;font-family:var(--f-disp);font-weight:700;font-size:clamp(90px,15vw,280px);line-height:1;letter-spacing:.06em;color:#fff;white-space:nowrap;text-shadow:0 30px 90px rgba(239,127,92,.45);pointer-events:none;will-change:transform}
+.h-word small{position:absolute;left:.12em;top:-.2em;font-size:.075em;letter-spacing:.34em;font-weight:400;color:#fff;opacity:.9}
+.h-scene{position:absolute;inset:0;z-index:2;perspective:1500px;perspective-origin:50% 40%;pointer-events:none}
+.h-rig{position:absolute;inset:0;transform-style:preserve-3d}
+.slat{position:absolute;left:50%;top:47%;transform-style:preserve-3d;pointer-events:auto;cursor:pointer;will-change:transform}
+.slat .f{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:3px;background-repeat:no-repeat;box-shadow:0 40px 60px -30px rgba(6,41,73,.55),inset 0 0 0 1px rgba(255,255,255,.55);overflow:hidden}
+.slat .f::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.08) 22%,transparent 40%,transparent 78%,rgba(255,255,255,.22) 100%);mix-blend-mode:screen}
+.slat .f::before{content:"";position:absolute;inset:0 auto 0 0;width:1px;background:rgba(255,255,255,.9);z-index:1}
+.slat .f.b{transform:rotateY(180deg)}
+.slat .sh{position:absolute;left:8%;right:8%;bottom:-34px;height:18px;border-radius:50%;background:radial-gradient(closest-side,rgba(6,41,73,.28),transparent);transform:rotateX(90deg);pointer-events:none}
+.h-car{position:absolute;z-index:4;left:63%;top:83%;translate:-50% -100%;width:min(40vw,700px);aspect-ratio:2.65;pointer-events:none}
+.h-car img{position:absolute;left:0;bottom:0;width:100%;-webkit-box-reflect:below -4px linear-gradient(transparent 72%,rgba(255,255,255,.28));filter:drop-shadow(0 22px 20px rgba(6,41,73,.28))}
+.h-eyebrow{display:none;position:absolute;z-index:5;left:var(--gut);top:clamp(92px,12vh,120px);font-family:var(--f-disp);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-deep);display:flex;gap:12px;align-items:center}
+.h-eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.h-copy{position:absolute;z-index:6;left:var(--gut);bottom:clamp(70px,9vh,100px);max-width:46vw}
+.h-copy::before{content:"";position:absolute;z-index:-1;left:-14vw;right:-10vw;top:-30%;bottom:-40%;background:radial-gradient(closest-side,rgba(246,240,236,.92),rgba(246,240,236,.6) 55%,transparent);pointer-events:none}
+.h-name{font-family:var(--f-disp);font-weight:700;font-size:clamp(40px,5vw,92px);line-height:.88;letter-spacing:.02em;color:var(--blue-deep);white-space:nowrap;overflow:hidden;padding-bottom:.05em;text-transform:uppercase}
+.h-name span{display:inline-block}
+.h-line{margin:12px 0 16px;font-size:clamp(15px,1.15vw,18px);color:var(--ink);max-width:36ch}
+.h-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.h-price{font-family:var(--f-disp);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.h-price b{font-size:22px;letter-spacing:.04em;color:var(--blue-deep);margin-left:6px}
+.h-price small{letter-spacing:.1em;margin-left:10px}
+.h-specs{display:flex;gap:26px;margin:0 0 18px;font-family:var(--f-disp);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.h-specs div{display:grid;gap:2px}
+.h-specs b{font-size:24px;letter-spacing:.02em;color:var(--blue-deep);order:-1}
+.h-tabs{position:absolute;z-index:6;right:var(--gut);bottom:clamp(70px,9vh,100px);display:grid;gap:6px;justify-items:end}
+.h-tabs button{background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:12px;padding:5px 0;font-family:var(--f-disp);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);transition:color .4s}
+.h-tabs button i{position:relative;display:block;width:26px;height:2px;background:rgba(6,41,73,.18);overflow:hidden;transition:width .6s var(--e-out)}
+.h-tabs button i::after{content:"";position:absolute;inset:0;background:var(--blue);transform-origin:left;transform:scaleX(var(--p,0))}
+.h-tabs button.on{color:var(--blue-deep)}
+.h-tabs button.on i{width:72px}
+.h-hint{position:absolute;z-index:6;left:50%;bottom:76px;translate:-50% 0;font-family:var(--f-disp);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--blue-deep);opacity:.7;display:flex;gap:10px;align-items:center;pointer-events:none;transition:opacity .6s}
+.h-hint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.2}}
 .open{position:fixed;inset:0;z-index:150;display:none}
 .open.on{display:block}
 .open img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -145,6 +158,20 @@ body{background:var(--bg);color:var(--ink)}
 .open .specs{display:flex;gap:26px;flex-wrap:wrap;font-family:var(--f-disp);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:24px}
 .open .specs b{display:block;font-size:30px;letter-spacing:.02em}
 .open .x{position:absolute;right:var(--gut);top:90px;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(4,16,30,.35);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(6px)}
+@media (max-width:900px){
+  .h-word{top:19%;font-size:21vw}
+  .slat{top:39%}
+  .h-hint,.h-eyebrow,.h-specs{display:none}
+  .h-car{left:50%;top:64%;width:84vw}
+  .h-copy{max-width:none;right:var(--gut);bottom:104px}
+  .h-price small{display:none}
+  .h-row .btn{padding:13px 16px;font-size:10px}
+  .h-name{font-size:13vw}
+  .h-line{display:none}
+  .h-tabs{left:var(--gut);right:var(--gut);bottom:70px;display:flex;justify-content:space-between;gap:4px}
+  .h-tabs button{font-size:0;gap:0}.h-tabs button i{width:100%!important;min-width:40px}
+  .h-tabs button{flex:1}
+}
 
 /* ---------- RANGE (pinned coverflow) ---------- */
 .range{height:520vh;position:relative}
@@ -291,7 +318,6 @@ body{background:var(--bg);color:var(--ink)}
 @media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
   .sec-head,.f-grid,.v-grid,.foot .cols{grid-template-columns:minmax(0,1fr)}
-  .h-word{font-size:19vw}.h-car{left:50%;width:84vw;top:56%}.h-side{display:none}
   .r-pan{width:78vw;top:34%}.r-car{width:80vw;left:50%;top:62%}.r-ticks{display:none}.r-info{padding:18px}
   .r-head{top:84px}
   .in-copy{grid-template-columns:1fr}
@@ -312,11 +338,20 @@ body{background:var(--bg);color:var(--ink)}
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="h-sun"></div><div class="h-floor"></div>
-  <div class="h-scene"><div class="h-rig" id="hrig"><div class="h-word"><small>Driven to</small>EVOLVE</div></div></div>
-  <div class="h-cap"><div class="m">CHANGAN UNI-S<small>From R389 900 · From R4 999 p/m*</small></div><div class="row"><a class="btn pri mag" href="#range">Explore the range <i>→</i></a><a class="btn ghost mag" href="#visit" style="color:var(--blue-deep)">Test drive</a></div></div>
-  <div class="h-side">Changan Pretoria<br>5 models · Petrol · Diesel · REEV · EV</div>
-  <div class="h-scroll" aria-hidden="true"></div>
+  <div class="h-word" id="hword" aria-hidden="true"><small>Driven to</small>EVOLVE</div>
+  <div class="h-scene"><div class="h-rig" id="hrig" role="button" tabindex="0" aria-label="Open this model's world"></div></div>
+  <div class="h-car" id="hcar"></div>
+  <div class="h-copy">
+    <div class="h-name" id="hname"></div>
+    <p class="h-line" id="hline"></p>
+    <div class="h-specs" id="hspecs" aria-live="polite"></div>
+    <div class="h-price" id="hprice"></div>
+    <div class="h-row"><a class="btn pri mag" href="#range">Discover <i>→</i></a><a class="btn ghost mag" href="#visit" style="color:var(--blue-deep)">Book a test drive</a></div>
+  </div>
+  <div class="h-tabs" id="htabs" role="tablist" aria-label="Models"></div>
+  <div class="h-hint" id="hhint">Move to break the world apart · click to step in</div>
 </section>
+
 
 <!-- RANGE -->
 <section class="range" id="range">
@@ -601,57 +636,119 @@ function initForms() { $$('form').forEach(f => f.addEventListener('submit', e =>
 function boot() { initReveals(); initCounters(); initMagnetic(); initCursor(); initNav(); initForms(); }
 
 
-/* ---------- HERO: floating panels ---------- */
+/* ---------- HERO: one world, split into glass slats ---------- */
 (() => {
-  const hero = $('.hero'), rig = $('#hrig'), word = $('.h-word', rig), open = $('#open');
-  const P = [
-    { m: 4, x: 13, y: 40, z: -260, ry: 26, w: 12.5 }, { m: 3, x: 31, y: 33, z: 140, ry: 16, w: 10.5 },
-    { m: 0, x: 51, y: 25, z: -520, ry: 0, w: 9.5 }, { m: 1, x: 70, y: 35, z: -180, ry: -20, w: 11.5 }, { m: 2, x: 87, y: 42, z: 200, ry: -28, w: 12 }
-  ];
-  P.forEach((p, i) => {
-    const M = MODELS[p.m]; p.M = M;
-    const el = document.createElement('div'); el.className = 'pan'; el.tabIndex = 0; el.setAttribute('role', 'button'); el.dataset.cur = 'OPEN';
-    el.setAttribute('aria-label', 'Open ' + M.n);
-    el.innerHTML = `<div class="g"><img src="${IMG[M.portrait]}" alt=""><div class="t"><span>${M.n}</span><span>↗</span></div></div>`;
-    rig.appendChild(el); p.el = el; p.ph = i * 1.37;
-    el.addEventListener('click', () => expand(p)); el.addEventListener('keydown', e => e.key === 'Enter' && expand(p));
+  const hero = $('.hero'), rig = $('#hrig'), word = $('#hword'), carBox = $('#hcar'), open = $('#open');
+  const small = () => innerWidth < 900;
+  const N = small() ? 5 : 9;
+  const DEPTH = Array.from({ length: N }, (_, i) => [.2, -.7, .5, -.3, .9, -.5, .3, -.9, .6][i % 9]);
+  const FLOAT = Array.from({ length: N }, (_, i) => i * 1.31);
+  const img = M => IMG[small() ? M.portrait : M.world];
+  const slats = Array.from({ length: N }, (_, i) => {
+    const el = document.createElement('div'); el.className = 'slat'; el.dataset.cur = 'STEP IN';
+    el.innerHTML = '<div class="f a"></div><div class="f b"></div><div class="sh"></div>';
+    rig.appendChild(el);
+    return { el, a: $('.f.a', el), b: $('.f.b', el), ang: 0, from: 0, to: 0, t0: 0, dur: 1100 };
   });
-  const car = document.createElement('div'); car.className = 'h-car'; car.innerHTML = `<img src="${IMG.c_unis}" alt="Changan Uni-S">`; rig.appendChild(car);
-  let mx = .5, my = .5, tx = .5, ty = .5, intro = RM ? 1 : 0;
-  hero.addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; });
-  const ease = x => 1 - Math.pow(1 - clamp(x), 3);
-  addTick(hero, (t, dt) => {
-    if (intro < 1) intro = Math.min(1, intro + .0075 * dt);
-    mx += (tx - mx) * .05 * dt; my += (ty - my) * .05 * dt;
-    const sp = clamp(scrollY / innerHeight), W = innerWidth, small = W < 700;
-    rig.style.transform = `rotateY(${(mx - .5) * 16}deg) rotateX(${(.5 - my) * 7 + sp * 8}deg) translateZ(${sp * 300}px)`;
-    const e = ease(intro);
-    P.forEach((p, i) => {
-      const w = (small ? p.w * 2.1 : p.w) * W / 100;
-      const f = RM ? 0 : Math.sin(t * .0007 + p.ph) * 12;
-      const zIn = p.z - (1 - ease(intro * 1.4 - i * .08)) * 1400;
-      p.el.style.width = w + 'px'; p.el.style.height = w * 1.48 + 'px';
-      p.el.style.left = (small ? (p.x - 50) * 1.15 + 50 : p.x) + '%'; p.el.style.top = p.y + '%';
-      p.el.style.transform = `translate(-50%,-50%) translate3d(0,${f - sp * (120 + i * 40)}px,${zIn}px) rotateY(${p.ry + Math.sin(t * .0004 + p.ph) * 3}deg)`;
-      p.el.style.opacity = clamp(intro * 1.6 - i * .1);
+  let cw = 0, ch = 0, sw = 0;
+  function layout() {
+    const W = innerWidth, H = innerHeight;
+    cw = small() ? W * .86 : Math.min(W * .7, 1320);
+    ch = small() ? Math.min(cw * 1.38, H * .44) : Math.min(cw / 2.23, H * .46);
+    if (!small()) cw = Math.min(cw, ch * 2.23);
+    sw = cw / N;
+    slats.forEach((s, i) => {
+      s.el.style.width = (sw - (small() ? 5 : 8)) + 'px'; s.el.style.height = ch + 'px';
+      [s.a, s.b].forEach(f => { f.style.backgroundSize = `${cw}px ${ch}px`; f.style.backgroundPosition = `${-i * sw}px 0`; });
     });
-    word.style.transform = `translate(-50%,-50%) translate3d(0,${(1 - e) * 120 - sp * 60}px,-60px)`; word.style.opacity = e;
-    car.style.transform = `translate(-50%,-50%) translate3d(${(1 - e) * 30}vw,0,120px)`;
+  }
+  /* --- copy, specs, tabs --- */
+  const tabs = $('#htabs');
+  tabs.innerHTML = MODELS.map((M, i) => `<button type="button" role="tab" data-i="${i}" aria-label="${M.n}">${M.n}<i></i></button>`).join('');
+  const tb = $$('button', tabs);
+  const name = $('#hname'), line = $('#hline'), price = $('#hprice'), specs = $('#hspecs');
+  let cur = -1, carEl = null, lastSwitch = 0;
+  const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  function setModel(k, first) {
+    if (k === cur) return;
+    const dir = k > cur ? 1 : -1, M = MODELS[k]; cur = k; lastSwitch = performance.now();
+    tb.forEach((b, j) => { b.classList.toggle('on', j === k); b.setAttribute('aria-selected', String(j === k)); b.querySelector('i').style.setProperty('--p', 0); });
+    name.innerHTML = M.n.split('').map(c => `<span>${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+    line.textContent = M.line;
+    price.innerHTML = `From<b>${R(M.from)}</b>${M.pm ? `<small>${M.pm}</small>` : ''}`;
+    specs.innerHTML = M.specs.map(([v, l]) => `<div><span>${l}</span><b>${v}</b></div>`).join('');
+    if (!RM && !first) {
+      [...name.children].forEach((c, j) => c.animate([{ transform: 'translateY(105%)' }, { transform: 'none' }], { duration: 900, delay: 250 + j * 30, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
+      [line, price, ...specs.children].forEach((el, j) => el.animate([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 700, delay: 400 + j * 60, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
+    }
+    /* flip the slats in a wave onto the hidden faces */
+    const now = performance.now();
+    slats.forEach((s, i) => {
+      const facingA = Math.round(s.to / 180) % 2 === 0;
+      (first ? s.a : (facingA ? s.b : s.a)).style.backgroundImage = `url(${img(M)})`;
+      if (first) return;
+      s.from = s.ang; s.to = s.to + 180 * dir; s.t0 = now + (dir > 0 ? i : N - 1 - i) * 75; s.dur = RM ? 1 : 1100;
+    });
+    /* car: drive out, drive in and brake */
+    const im = new Image(); im.src = IMG[M.cut]; im.alt = 'Changan ' + M.n;
+    carBox.style.width = M.k === 'hunter' ? 'min(30vw,520px)' : M.k === 'alsvin' ? 'min(38vw,660px)' : '';
+    carBox.appendChild(im);
+    if (carEl && !RM) { const o = carEl; o.animate([{ transform: 'none', filter: 'blur(0)' }, { transform: `translateX(${-dir * 90}vw)`, filter: 'blur(8px)' }], { duration: 750, easing: 'cubic-bezier(.6,0,.9,.4)', fill: 'forwards' }).onfinish = () => o.remove(); }
+    else if (carEl) carEl.remove();
+    if (!RM) im.animate([{ transform: `translateX(${dir * 90}vw)`, filter: 'blur(8px)' }, { transform: 'translateX(-2.5%)', filter: 'blur(0)', offset: .82 }, { transform: 'none' }], { duration: 1300, delay: first ? 900 : 350, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
+    carEl = im;
+  }
+  tb.forEach(b => b.addEventListener('click', () => setModel(+b.dataset.i)));
+  layout(); setModel(0, true); addEventListener('resize', layout);
+
+  /* --- pointer: breaking the world apart --- */
+  let mx = .5, my = .5, tx = .5, ty = .5, spread = 4, moved = false;
+  hero.addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; if (!moved) { moved = true; $('#hhint').style.opacity = 0; } });
+  hero.addEventListener('pointerleave', () => { tx = .5; ty = .5; });
+  const t0 = performance.now();
+  addTick(hero, (t, dt) => {
+    const intro = RM ? 1 : clamp((t - t0 - 200) / 1800), ie = 1 - Math.pow(1 - intro, 4);
+    mx += (tx - mx) * .06 * dt; my += (ty - my) * .06 * dt;
+    const sp = clamp(scrollY / innerHeight);
+    const dist = Math.hypot(mx - .5, (my - .5) * .7) * 2;
+    const target = .08 + dist * 1.25 + sp * 3 + (1 - ie) * 5 + (RM ? 0 : Math.sin(t * .0006) * .04);
+    spread += (target - spread) * .08 * dt;
+    rig.style.transform = `rotateY(${(mx - .5) * 14}deg) rotateX(${(.5 - my) * 7 + sp * 10}deg) translateY(${-sp * 18}vh)`;
+    slats.forEach((s, i) => {
+      if (s.to !== s.from) { const p = clamp((t - s.t0) / s.dur); s.ang = s.from + (s.to - s.from) * ease(p); if (p >= 1) s.from = s.to; }
+      const c = i - (N - 1) / 2, flipping = s.ang % 180 !== 0;
+      const pop = flipping ? Math.sin(Math.PI * (Math.abs(s.ang) % 180) / 180) * 90 : 0;
+      const x = c * sw * (1 + spread * .32);
+      const z = DEPTH[i] * spread * 240 - (1 - ie) * 900 + pop;
+      const y = (RM ? 0 : Math.sin(t * .0008 + FLOAT[i]) * (4 + spread * 10)) + DEPTH[i] * spread * 26 - sp * (60 + i * 18);
+      s.el.style.transform = `translate(-50%,-50%) translate3d(${x}px,${y}px,${z}px) rotateY(${s.ang + c * spread * 5}deg) rotateZ(${DEPTH[i] * spread * 2}deg)`;
+      s.el.style.opacity = clamp(ie * 1.4 - Math.abs(c) * .06);
+    });
+    word.style.transform = `translate3d(${(mx - .5) * -40}px,${(1 - ie) * 80 - sp * 140}px,0)`;
+    word.style.opacity = ie * (1 - sp * .8);
+    const p = clamp((t - lastSwitch) / 6500);
+    const bar = tb[cur] && tb[cur].querySelector('i'); if (bar) bar.style.setProperty('--p', p);
+    if (!RM && p >= 1 && sp < .3 && !open.classList.contains('on')) setModel((cur + 1) % MODELS.length);
   });
-  function expand(p) {
-    const r = p.el.getBoundingClientRect(), M = p.M;
-    const ins = `inset(${r.top}px ${innerWidth - r.right}px ${innerHeight - r.bottom}px ${r.left}px round 4px)`;
+
+  /* --- click: step into the world --- */
+  function expand() {
+    const M = MODELS[cur], rs = slats.map(s => s.el.getBoundingClientRect());
+    const r = { left: Math.min(...rs.map(x => x.left)), right: Math.max(...rs.map(x => x.right)), top: Math.min(...rs.map(x => x.top)), bottom: Math.max(...rs.map(x => x.bottom)) };
+    const ins = `inset(${Math.max(0, r.top)}px ${Math.max(0, innerWidth - r.right)}px ${Math.max(0, innerHeight - r.bottom)}px ${Math.max(0, r.left)}px round 6px)`;
     $('img', open).src = IMG[M.world]; $('h3', open).textContent = M.n; $('p', open).textContent = M.line;
     $('.specs', open).innerHTML = M.specs.map(([v, l]) => `<div><b>${v}</b>${l}</div>`).join('') + `<div><b>${R(M.from)}</b>From</div>`;
     open.classList.add('on'); open._from = ins;
     if (RM) return;
     open.animate([{ clipPath: ins }, { clipPath: 'inset(0px 0px 0px 0px round 0px)' }], { duration: 1000, easing: 'cubic-bezier(.7,0,.2,1)' });
-    $('img', open).animate([{ transform: 'scale(1.25)' }, { transform: 'scale(1)' }], { duration: 1400, easing: 'cubic-bezier(.16,1,.3,1)' });
+    $('img', open).animate([{ transform: 'scale(1.2)' }, { transform: 'scale(1)' }], { duration: 1400, easing: 'cubic-bezier(.16,1,.3,1)' });
     [...$('.tx', open).children].forEach((c, i) => c.animate([{ opacity: 0, transform: 'translateY(30px)' }, { opacity: 1, transform: 'none' }], { duration: 900, delay: 550 + i * 90, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' }));
   }
-  const close = () => { if (RM || !open._from) return open.classList.remove('on'); open.animate([{ clipPath: 'inset(0px 0px 0px 0px round 0px)' }, { clipPath: open._from }], { duration: 800, easing: 'cubic-bezier(.7,0,.2,1)' }).onfinish = () => open.classList.remove('on'); };
+  rig.addEventListener('click', expand); rig.addEventListener('keydown', e => e.key === 'Enter' && expand());
+  const close = () => { if (RM || !open._from) return open.classList.remove('on'); open.animate([{ clipPath: 'inset(0px 0px 0px 0px round 0px)' }, { clipPath: open._from }], { duration: 800, easing: 'cubic-bezier(.7,0,.2,1)' }).onfinish = () => { open.classList.remove('on'); lastSwitch = performance.now(); }; };
   $('.x', open).addEventListener('click', close); addEventListener('keydown', e => e.key === 'Escape' && open.classList.contains('on') && close());
 })();
+
 
 /* ---------- RANGE: pinned coverflow ---------- */
 (() => {
