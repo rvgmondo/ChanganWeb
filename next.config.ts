@@ -53,8 +53,8 @@ const nextConfig: NextConfig = {
      */
     unoptimized: true,
     remotePatterns: [
-      { protocol: "https", hostname: "changanpta.co.za" },
-      { protocol: "https", hostname: "**.changanpta.co.za" },
+      { protocol: "https", hostname: "changansilverton.co.za" },
+      { protocol: "https", hostname: "**.changansilverton.co.za" },
       ...(process.env.NEXT_PUBLIC_MEDIA_HOSTNAME
         ? [{ protocol: "https" as const, hostname: process.env.NEXT_PUBLIC_MEDIA_HOSTNAME }]
         : []),

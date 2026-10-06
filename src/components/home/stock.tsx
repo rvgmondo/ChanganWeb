@@ -72,7 +72,7 @@ export function Stock({
       <div className="wrap">
         <div className="sec-head">
           <div>
-            <span className="lab">In stock at Changan Pretoria</span>
+            <span className="lab">In stock at Changan Silverton</span>
             <h2 id="stock-h" className="split">
               Ready when
               <br />

@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "New and demo Changan stock in Pretoria",
   description:
-    "Search every Changan in stock at Changan Pretoria: Uni-S, Deepal S07, Hunter, CS75 Pro and Alsvin. Filter by model, price, year and mileage.",
+    "Search every Changan in stock at Changan Silverton: Uni-S, Deepal S07, Hunter, CS75 Pro and Alsvin. Filter by model, price, year and mileage.",
   alternates: { canonical: "/stock" },
 };
 
@@ -33,7 +33,7 @@ export default async function StockPage({
             Ready to drive.
           </>
         }
-        lead="New and demo Changans on the floor in Brooklyn today. Search by name, filter by budget, and save the ones you like."
+        lead="New and demo Changans on the floor in Silverton today. Search by name, filter by budget, and save the ones you like."
         crumbs={[{ href: "/stock", label: "Stock" }]}
         images={[
           "/brand/l_unis_walk.webp",

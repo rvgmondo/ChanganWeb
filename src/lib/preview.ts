@@ -4,8 +4,8 @@ import { createHmac, timingSafeEqual } from "node:crypto";
  * Private client preview.
  *
  * Switched on by setting PREVIEW_CODES, a comma-separated list of CODE:Viewer name pairs,
- * for example:  PREVIEW_CODES="CPTA-7QX2:Changan Pretoria (MD),CPTA-K9M4:Changan Pretoria (Sales)"
- * Each viewer gets their own link, /preview/enter?code=CPTA-7QX2, which sets a signed cookie.
+ * for example:  PREVIEW_CODES="CSIL-7QX2:Changan Silverton (MD),CSIL-K9M4:Changan Silverton (Sales)"
+ * Each viewer gets their own link, /preview/enter?code=CSIL-7QX2, which sets a signed cookie.
  * Without that cookie every page, image and API call is refused (see src/proxy.ts).
  *
  * PREVIEW_EXPIRES (YYYY-MM-DD) ends every link at midnight on that date.
@@ -17,7 +17,7 @@ export const PREVIEW_COOKIE = "cp_preview";
 export type PreviewViewer = { code: string; name: string };
 
 export const previewEnabled = (): boolean => Boolean(process.env.PREVIEW_CODES?.trim());
-export const previewClient = (): string => process.env.PREVIEW_CLIENT || "Changan Pretoria";
+export const previewClient = (): string => process.env.PREVIEW_CLIENT || "Changan Silverton";
 
 export function previewCodes(): PreviewViewer[] {
   return (process.env.PREVIEW_CODES ?? "")

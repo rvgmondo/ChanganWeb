@@ -1,6 +1,7 @@
 import * as migration_20261005_192542_initial from './20261005_192542_initial';
 import * as migration_20261006_033713_trade_in_photos_departments from './20261006_033713_trade_in_photos_departments';
 import * as migration_20261006_034330_preview_visits from './20261006_034330_preview_visits';
+import * as migration_20261006_072633_dealer_silverton from './20261006_072633_dealer_silverton';
 
 export const migrations = [
   {
@@ -16,6 +17,11 @@ export const migrations = [
   {
     up: migration_20261006_034330_preview_visits.up,
     down: migration_20261006_034330_preview_visits.down,
-    name: '20261006_034330_preview_visits'
+    name: '20261006_034330_preview_visits',
+  },
+  {
+    up: migration_20261006_072633_dealer_silverton.up,
+    down: migration_20261006_072633_dealer_silverton.down,
+    name: '20261006_072633_dealer_silverton'
   },
 ];

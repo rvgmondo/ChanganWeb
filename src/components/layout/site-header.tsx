@@ -23,7 +23,7 @@ export function SiteHeader({ whatsapp }: { whatsapp?: string | null }) {
 
   return (
     <header className={`nav${scrolled ? " scrolled" : ""}`}>
-      <Link href="/" aria-label="Changan Pretoria home">
+      <Link href="/" aria-label="Changan Silverton home">
         {/* biome-ignore lint/performance/noImgElement: static brand asset, sized explicitly */}
         <img
           className="logo"

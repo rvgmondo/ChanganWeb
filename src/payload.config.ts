@@ -44,8 +44,8 @@ const r2 = Boolean(
 
 const smtp = process.env.SMTP_HOST
   ? nodemailerAdapter({
-      defaultFromAddress: process.env.EMAIL_FROM || "noreply@changanpta.co.za",
-      defaultFromName: "Changan Pretoria",
+      defaultFromAddress: process.env.EMAIL_FROM || "noreply@changansilverton.co.za",
+      defaultFromName: "Changan Silverton",
       transportOptions: {
         host: process.env.SMTP_HOST,
         port: Number(process.env.SMTP_PORT || 587),
@@ -62,8 +62,8 @@ export default buildConfig({
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },
     meta: {
-      titleSuffix: "| Changan Pretoria admin",
-      description: "Changan Pretoria website administration",
+      titleSuffix: "| Changan Silverton admin",
+      description: "Changan Silverton website administration",
       defaultOGImageType: "off",
     },
     avatar: "default",

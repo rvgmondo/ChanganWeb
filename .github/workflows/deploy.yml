@@ -64,7 +64,7 @@ jobs:
           # NEXT_PUBLIC_SERVER_URL is inlined at build time, so it has to be right HERE and
           # cannot be corrected by an environment variable on the server. Set the repository
           # variable SITE_URL to change it.
-          NEXT_PUBLIC_SERVER_URL: ${{ inputs.serverUrl || vars.SITE_URL || 'https://changanpta.co.za' }}
+          NEXT_PUBLIC_SERVER_URL: ${{ inputs.serverUrl || vars.SITE_URL || 'https://changansilverton.co.za' }}
           # A build id Cloudflare has not seen, so it re-fetches the new asset URLs rather
           # than serving a chunk from the previous build.
           NEXT_DEPLOYMENT_ID: ${{ github.sha }}
@@ -139,7 +139,7 @@ jobs:
           Built from main by GitHub Actions. Do not commit here by hand.
 
           Source commit: ${{ github.sha }}
-          Built for:     ${{ inputs.serverUrl || vars.SITE_URL || 'https://changanpta.co.za' }}"
+          Built for:     ${{ inputs.serverUrl || vars.SITE_URL || 'https://changansilverton.co.za' }}"
 
           if [ -n "$PARENT" ]; then
             COMMIT=$(git commit-tree "$TREE" -p "$PARENT" -m "$MESSAGE")
@@ -159,7 +159,7 @@ jobs:
           {
             echo "### Deploy branch updated"
             echo ""
-            echo "Built for \`${{ inputs.serverUrl || vars.SITE_URL || 'https://changanpta.co.za' }}\` from \`${{ github.sha }}\`."
+            echo "Built for \`${{ inputs.serverUrl || vars.SITE_URL || 'https://changansilverton.co.za' }}\` from \`${{ github.sha }}\`."
             echo ""
             echo "The \`install\` job takes it from here. Nothing to click in cPanel."
           } >> "$GITHUB_STEP_SUMMARY"
@@ -195,7 +195,7 @@ jobs:
       SSH_USER: ${{ secrets.HOST_SSH_USER }}
       SSH_PORT: ${{ secrets.HOST_SSH_PORT }}
       KNOWN_HOSTS: ${{ secrets.HOST_SSH_KNOWN_HOSTS }}
-      SITE_URL: ${{ inputs.serverUrl || vars.SITE_URL || 'https://changanpta.co.za' }}
+      SITE_URL: ${{ inputs.serverUrl || vars.SITE_URL || 'https://changansilverton.co.za' }}
       SHORT_SHA: ${{ github.sha }}
 
     steps:

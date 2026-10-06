@@ -34,7 +34,7 @@ set -euo pipefail
 
 APP="${CHANGAN_APP:-$HOME/changan}"
 REPO="${CHANGAN_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-SITE="${CHANGAN_SITE_URL:-https://changanpta.co.za}"
+SITE="${CHANGAN_SITE_URL:-https://changansilverton.co.za}"
 FORCE="${1:-}"
 
 say() { printf '%s  %s\n' "$(date -u '+%Y-%m-%d %H:%M:%S')" "$*"; }

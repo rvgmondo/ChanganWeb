@@ -9,7 +9,7 @@ export const Dealer: GlobalConfig = {
   admin: { group: "Settings" },
   access: { read: () => true, update: signedIn },
   fields: [
-    { name: "name", type: "text", required: true, defaultValue: "Changan Pretoria" },
+    { name: "name", type: "text", required: true, defaultValue: "Changan Silverton" },
     {
       type: "row",
       fields: [
@@ -17,14 +17,14 @@ export const Dealer: GlobalConfig = {
           name: "street",
           type: "text",
           required: true,
-          defaultValue: "332 Middel Street",
+          defaultValue: "478 Pretoria Road",
           admin: { width: "50%" },
         },
         {
           name: "suburb",
           type: "text",
           required: true,
-          defaultValue: "Brooklyn",
+          defaultValue: "Silverton",
           admin: { width: "25%" },
         },
         {
@@ -39,9 +39,9 @@ export const Dealer: GlobalConfig = {
     {
       type: "row",
       fields: [
-        { name: "postalCode", type: "text", defaultValue: "0181", admin: { width: "25%" } },
-        { name: "latitude", type: "number", defaultValue: -25.7685, admin: { width: "25%" } },
-        { name: "longitude", type: "number", defaultValue: 28.2369, admin: { width: "25%" } },
+        { name: "postalCode", type: "text", defaultValue: "0184", admin: { width: "25%" } },
+        { name: "latitude", type: "number", defaultValue: -25.7325, admin: { width: "25%" } },
+        { name: "longitude", type: "number", defaultValue: 28.2948, admin: { width: "25%" } },
       ],
     },
     {
@@ -51,14 +51,14 @@ export const Dealer: GlobalConfig = {
           name: "phone",
           type: "text",
           required: true,
-          defaultValue: "012 023 3433",
+          defaultValue: "012 804 2369",
           admin: { width: "33%" },
         },
         {
           name: "email",
           type: "email",
           required: true,
-          defaultValue: "info@changanpta.co.za",
+          defaultValue: "stavros@changansilverton.co.za",
           admin: { width: "33%" },
         },
         {
@@ -97,9 +97,21 @@ export const Dealer: GlobalConfig = {
       type: "array",
       label: "Departments",
       defaultValue: [
-        { name: "New and demo sales", phone: "012 023 3433", email: "info@changanpta.co.za" },
-        { name: "Finance and insurance", phone: "012 023 3433", email: "info@changanpta.co.za" },
-        { name: "Service and parts", phone: "012 023 3433", email: "info@changanpta.co.za" },
+        {
+          name: "New and demo sales",
+          phone: "012 804 2369",
+          email: "stavros@changansilverton.co.za",
+        },
+        {
+          name: "Finance and insurance",
+          phone: "012 804 2369",
+          email: "stavros@changansilverton.co.za",
+        },
+        {
+          name: "Service and parts",
+          phone: "012 804 2369",
+          email: "stavros@changansilverton.co.za",
+        },
       ],
       fields: [
         {

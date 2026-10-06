@@ -1,7 +1,7 @@
-# Changan Pretoria
+# Changan Silverton
 
-The website for **Changan Pretoria**, 332 Middel Street, Brooklyn, Pretoria (012 023 3433,
-info@changanpta.co.za). It runs on Next.js 16 with Payload 3 as the admin, and stores
+The website for **Changan Silverton**, 478 Pretoria Road, Silverton, Pretoria 0184 (012 804 2369,
+stavros@changansilverton.co.za). It runs on Next.js 16 with Payload 3 as the admin, and stores
 everything in one SQLite database file. It deploys to cPanel the same way as the other Mondobase
 Node sites (Rynet, Verboten, Amico).
 
@@ -44,7 +44,7 @@ npm run seed                # real line-up, 22 sample stock cars, sample reviews
 npm run dev                 # http://localhost:3000, admin at /admin
 ```
 
-The seed creates the admin login `admin@changanpta.co.za` with password `ChangeMe123!`.
+The seed creates the admin login `admin@changansilverton.co.za` with password `ChangeMe123!`.
 Change it on first sign-in. You can set your own with `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD`.
 `npm run seed -- --reset` replaces the seeded content. It never touches logins or leads.
 

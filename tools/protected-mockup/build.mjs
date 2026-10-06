@@ -5,9 +5,9 @@
  *
  *   node tools/protected-mockup/build.mjs \
  *     --in concepts/full/home-a.html \
- *     --out dist/changan-pretoria-preview.html \
+ *     --out dist/changan-silverton-preview.html \
  *     --domain mondobase.com \
- *     --client "Changan Pretoria" \
+ *     --client "Changan Silverton" \
  *     --expires 2026-11-06
  *
  * The page is gzipped and encrypted (AES-256-GCM). The key is derived (PBKDF2, 150 000 rounds)
@@ -30,7 +30,7 @@ const args = Object.fromEntries(
 const input = args.in ?? "concepts/full/home-a.html";
 const output = args.out ?? "dist/preview.html";
 const domain = (args.domain ?? "mondobase.com").toLowerCase().replace(/^www\./, "");
-const client = args.client ?? "Changan Pretoria";
+const client = args.client ?? "Changan Silverton";
 const expires = args.expires ? Date.parse(`${args.expires}T23:59:59+02:00`) : Date.now() + 30 * 864e5;
 const message = args.message ?? "Please contact Mondobase for access.";
 if (!Number.isFinite(expires)) throw new Error("--expires must be YYYY-MM-DD");

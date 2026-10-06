@@ -21,15 +21,15 @@ const site = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(site),
   title: {
-    default: "Changan Pretoria | New Changan Uni-S, Deepal S07, Hunter, CS75 Pro and Alsvin",
-    template: "%s | Changan Pretoria",
+    default: "Changan Silverton | New Changan Uni-S, Deepal S07, Hunter, CS75 Pro and Alsvin",
+    template: "%s | Changan Silverton",
   },
   description:
-    "Changan Pretoria in Brooklyn. New and demo Changan Uni-S, Deepal S07, Hunter, CS75 Pro and Alsvin, finance through Changan Finance, trade-ins and test drives.",
+    "Changan Silverton on Pretoria Road, Silverton. New and demo Changan Uni-S, Deepal S07, Hunter, CS75 Pro and Alsvin, finance through Changan Finance, trade-ins and test drives.",
   openGraph: {
     type: "website",
     locale: "en_ZA",
-    siteName: "Changan Pretoria",
+    siteName: "Changan Silverton",
     images: [{ url: "/brand/cover.webp", width: 1700, height: 956 }],
   },
   twitter: { card: "summary_large_image" },

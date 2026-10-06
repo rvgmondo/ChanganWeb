@@ -6,7 +6,7 @@ preview never shares a database or a URL with the live site.
 
 ## What the client gets
 
-- **A personal link per person:** `https://changan.preview.mondobase.co.za/preview/enter?code=CPTA-7QX2`.
+- **A personal link per person:** `https://changan.preview.mondobase.co.za/preview/enter?code=CSIL-7QX2`.
   Opening it sets a signed, HttpOnly cookie and takes them to the site. Without it, every page
   shows a "Private preview" gate.
 - **An expiry date:** after `PREVIEW_EXPIRES` every link stops working and the gate says the
@@ -19,7 +19,7 @@ preview never shares a database or a URL with the live site.
 | | |
 |---|---|
 | Everything is gated | Pages, brand photography, uploaded images and the API all need the cookie. A saved copy of a page cannot load its images or data, so it falls apart offline. |
-| Traceable watermark | A faint diagonal watermark over every screen: "Confidential preview · Changan Pretoria · by Mondobase · viewer name · code · date". Any screenshot or recording shows whose link it came from. A corner ribbon repeats the code. |
+| Traceable watermark | A faint diagonal watermark over every screen: "Confidential preview · Changan Silverton · by Mondobase · viewer name · code · date". Any screenshot or recording shows whose link it came from. A corner ribbon repeats the code. |
 | Copy deterrents | No right-click menu, text selection, image dragging, copy, or Save / Print / View-source / dev-tools shortcuts. |
 | Print | Printing produces one line of text saying the preview is confidential. |
 | Screenshot deterrent | The page blurs whenever the window loses focus, which most snipping and screenshot tools cause, and on the PrintScreen key, which also replaces the clipboard with a notice. |
@@ -46,9 +46,9 @@ line to the proposal or NDA.
    environment variables as well:
 
    ```
-   PREVIEW_CODES=CPTA-7QX2:Changan Pretoria (Dealer Principal),CPTA-K9M4:Changan Pretoria (Sales Manager)
+   PREVIEW_CODES=CSIL-7QX2:Changan Silverton (Dealer Principal),CSIL-K9M4:Changan Silverton (Sales Manager)
    PREVIEW_EXPIRES=2026-10-31
-   PREVIEW_CLIENT=Changan Pretoria
+   PREVIEW_CLIENT=Changan Silverton
    PREVIEW_ALLOW_ADMIN=true
    ```
 

@@ -161,7 +161,7 @@ const REVIEWS = [
   [
     "Walked in for a test drive, left with a Uni-S. No pressure, just straight answers on finance.",
     "Lerato M.",
-    "Brooklyn",
+    "Silverton",
   ],
   [
     "The S07 handover took an hour and they set up the home charger with me. Proper service.",
@@ -209,7 +209,7 @@ async function main() {
 
   const users = await payload.count({ collection: "users", overrideAccess: true });
   if (users.totalDocs === 0) {
-    const email = process.env.SEED_ADMIN_EMAIL || "admin@changanpta.co.za";
+    const email = process.env.SEED_ADMIN_EMAIL || "admin@changansilverton.co.za";
     const password = process.env.SEED_ADMIN_PASSWORD || "ChangeMe123!";
     await payload.create({
       collection: "users",
@@ -292,7 +292,7 @@ async function main() {
         transmission: tr,
         colour,
         colourHex: colourHex.get(`${key}:${colour}`) ?? "#c9ced6",
-        stockNumber: `CPTA-${String(1000 + n).padStart(4, "0")}`,
+        stockNumber: `CSIL-${String(1000 + n).padStart(4, "0")}`,
         photos: [await upload(cut, `Changan ${model?.name} in ${colour}, side view`)],
         description: `${year} Changan ${model?.name} ${variant} in ${colour}. ${model?.tagline}`,
         status: "available",

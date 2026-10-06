@@ -50,7 +50,7 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
   const ip =
     h.get("cf-connecting-ip") ?? h.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
   if (limited(ip))
-    return { ok: false, message: "Too many requests. Please call us on 012 023 3433 instead." };
+    return { ok: false, message: "Too many requests. Please call us on 012 804 2369 instead." };
 
   const data = parsed.data;
   const payload = await getPayload({ config });

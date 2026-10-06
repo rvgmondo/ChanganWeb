@@ -10,7 +10,7 @@ the app folder.
 ## 1. GitHub
 
 - Set the repository variable **`SITE_URL`** to the live address, for example
-  `https://changanpta.co.za`. It is baked into the build.
+  `https://changansilverton.co.za`. It is baked into the build.
 - Merge to `main`. The **Build deploy branch** workflow publishes the `deploy` branch.
 
 ## 2. Create the Node application
@@ -33,10 +33,10 @@ Add these on the same screen:
 NODE_ENV=production
 DATABASE_URI=file:./changan.db
 PAYLOAD_SECRET=<long random string, never change after go-live>
-NEXT_PUBLIC_SERVER_URL=https://changanpta.co.za
+NEXT_PUBLIC_SERVER_URL=https://changansilverton.co.za
 SMTP_HOST=<mail.yourdomain>   SMTP_PORT=587   SMTP_USER=<mailbox>   SMTP_PASS=<password>
-EMAIL_FROM=noreply@changanpta.co.za
-LEADS_TO=info@changanpta.co.za
+EMAIL_FROM=noreply@changansilverton.co.za
+LEADS_TO=stavros@changansilverton.co.za
 ```
 
 ## 4. Connect the repository
