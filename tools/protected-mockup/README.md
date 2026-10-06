@@ -16,7 +16,7 @@ node tools/protected-mockup/build.mjs \
 1. Upload the file to any folder on a site under the domain you built for, e.g.
    `public_html/preview/`. Subdomains work too.
 2. The page must be served over **https**, which AutoSSL handles. Plain http redirects to https.
-3. Share the URL, e.g. `https://mondobase.com/preview/changan-pretoria-preview-95fbcd747f.html`.
+3. Share the URL, e.g. `https://rynet.co.za/preview/changan-pretoria-preview-da6fce5230.html`.
    Keep the random part in the name so the URL can't be guessed.
 4. Optional, in that folder's `.htaccess`:
 
