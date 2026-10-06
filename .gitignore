@@ -25,3 +25,6 @@ playwright-report/
 
 .DS_Store
 npm-debug.log*
+
+# Private trade-in photos uploaded by customers.
+trade-in-photos/

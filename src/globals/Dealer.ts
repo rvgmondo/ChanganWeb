@@ -93,6 +93,26 @@ export const Dealer: GlobalConfig = {
       ],
     },
     {
+      name: "departments",
+      type: "array",
+      label: "Departments",
+      defaultValue: [
+        { name: "New and demo sales", phone: "012 023 3433", email: "info@changanpta.co.za" },
+        { name: "Finance and insurance", phone: "012 023 3433", email: "info@changanpta.co.za" },
+        { name: "Service and parts", phone: "012 023 3433", email: "info@changanpta.co.za" },
+      ],
+      fields: [
+        {
+          type: "row",
+          fields: [
+            { name: "name", type: "text", required: true, admin: { width: "40%" } },
+            { name: "phone", type: "text", admin: { width: "30%" } },
+            { name: "email", type: "email", admin: { width: "30%" } },
+          ],
+        },
+      ],
+    },
+    {
       name: "socials",
       type: "group",
       fields: [

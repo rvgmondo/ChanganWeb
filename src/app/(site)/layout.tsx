@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from "next";
 
+import { cookies } from "next/headers";
+
 import { Consent } from "@/components/layout/consent";
 import { MotionProvider } from "@/components/layout/motion-provider";
+import { PreviewGuard } from "@/components/layout/preview-guard";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { getDealer } from "@/lib/data";
 import { changan, noto } from "@/lib/fonts";
+import { PREVIEW_COOKIE, previewClient, previewEnabled, verifyToken } from "@/lib/preview";
 import "./globals.css";
 
 // Dealer details come from the CMS, so nothing under this layout is prerendered at build time
@@ -40,6 +44,9 @@ export const viewport: Viewport = {
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const dealer = await getDealer();
+  const viewer = previewEnabled()
+    ? verifyToken((await cookies()).get(PREVIEW_COOKIE)?.value)
+    : null;
   return (
     <html lang="en-ZA" className={`${changan.variable} ${noto.variable}`}>
       <body style={{ background: "var(--bg)", color: "var(--ink)" }}>
@@ -50,7 +57,16 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         <main id="main">{children}</main>
         <SiteFooter dealer={dealer} />
         <MotionProvider />
-        <Consent />
+        {viewer ? (
+          <PreviewGuard
+            client={previewClient()}
+            viewer={viewer.name}
+            code={viewer.code}
+            date={new Date().toISOString().slice(0, 10)}
+          />
+        ) : (
+          <Consent />
+        )}
       </body>
     </html>
   );

@@ -186,8 +186,8 @@ export function Stock({
           ))}
         </div>
         <div className="more">
-          <a className="btn pri mag" href="#visit">
-            Ask about all {total} vehicles <i>→</i>
+          <a className="btn pri mag" href="/stock">
+            View all {total} vehicles <i>→</i>
           </a>
         </div>
       </div>

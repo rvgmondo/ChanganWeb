@@ -23,8 +23,17 @@ photography and colour cut-outs from changanmotors.co.za. The approved mock-ups 
 | Booking | A test-drive form. A server action validates it with zod, rate-limits it, saves it as a **Lead** in the admin and emails the dealership. |
 | Shell | Lenis smooth scrolling synced to GSAP, a contextual cursor, magnetic buttons, a POPIA consent banner (GA4 and Meta Pixel load only after consent), AutoDealer JSON-LD, sitemap and robots, and a reduced-motion version. |
 
-Next rounds: inventory search, vehicle detail pages (with Vehicle JSON-LD and View Transitions),
+Also built: **/stock**, the inventory page with typo-tolerant search, URL-synced filters (model,
+body, fuel, condition, transmission, price, year, mileage), sorting, grid and list views, saved cars
+and GSAP Flip filtering.
+
+Next rounds: vehicle detail pages (with Vehicle JSON-LD and View Transitions),
 finance pre-approval, trade-in with photo upload, about and contact pages, and admin branding.
+
+## Private client preview
+
+Set `PREVIEW_CODES` and the same build becomes a private, watermarked preview with a personal link
+per viewer, an expiry date and a visit log. See [PREVIEW.md](PREVIEW.md).
 
 ## Run it locally
 

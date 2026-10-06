@@ -73,8 +73,10 @@ export interface Config {
     reviews: Review;
     staff: Staff;
     leads: Lead;
+    'trade-in-photos': TradeInPhoto;
     media: Media;
     users: User;
+    'preview-visits': PreviewVisit;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,8 +90,10 @@ export interface Config {
     reviews: ReviewsSelect<false> | ReviewsSelect<true>;
     staff: StaffSelect<false> | StaffSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
+    'trade-in-photos': TradeInPhotosSelect<false> | TradeInPhotosSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'preview-visits': PreviewVisitsSelect<false> | PreviewVisitsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -390,9 +394,50 @@ export interface Lead {
    * Agreed to be contacted (POPIA).
    */
   consent: boolean;
+  /**
+   * Photos the customer uploaded with a trade-in request.
+   */
+  photos?: (number | TradeInPhoto)[] | null;
   notes?: string | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "trade-in-photos".
+ */
+export interface TradeInPhoto {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumb?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    large?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -420,6 +465,22 @@ export interface User {
     | null;
   password?: string | null;
   collection: 'users';
+}
+/**
+ * Each time someone opens a private preview link.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "preview-visits".
+ */
+export interface PreviewVisit {
+  id: number;
+  viewer: string;
+  code: string;
+  ip?: string | null;
+  device?: string | null;
+  outcome?: ('granted' | 'refused' | 'expired') | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -470,12 +531,20 @@ export interface PayloadLockedDocument {
         value: number | Lead;
       } | null)
     | ({
+        relationTo: 'trade-in-photos';
+        value: number | TradeInPhoto;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'preview-visits';
+        value: number | PreviewVisit;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -648,9 +717,52 @@ export interface LeadsSelect<T extends boolean = true> {
   message?: T;
   details?: T;
   consent?: T;
+  photos?: T;
   notes?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "trade-in-photos_select".
+ */
+export interface TradeInPhotosSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumb?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -730,6 +842,19 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "preview-visits_select".
+ */
+export interface PreviewVisitsSelect<T extends boolean = true> {
+  viewer?: T;
+  code?: T;
+  ip?: T;
+  device?: T;
+  outcome?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -794,6 +919,14 @@ export interface Dealer {
         id?: string | null;
       }[]
     | null;
+  departments?:
+    | {
+        name: string;
+        phone?: string | null;
+        email?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   socials?: {
     facebook?: string | null;
     instagram?: string | null;
@@ -827,6 +960,14 @@ export interface DealerSelect<T extends boolean = true> {
     | {
         days?: T;
         time?: T;
+        id?: T;
+      };
+  departments?:
+    | T
+    | {
+        name?: T;
+        phone?: T;
+        email?: T;
         id?: T;
       };
   socials?:

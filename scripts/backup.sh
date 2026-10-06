@@ -57,6 +57,14 @@ else
   echo "media: empty, nothing to archive"
 fi
 
+# --------------------------------------------------------------- trade-in photos
+# Customer uploads are always on local disk (they are private), so they are always archived.
+if [ -d "$APP/trade-in-photos" ] && [ -n "$(ls -A "$APP/trade-in-photos" 2>/dev/null)" ]; then
+  tar -czf "$TARGET/trade-in-photos.tar.gz" -C "$APP" trade-in-photos
+  echo "trade-in photos: archived"
+fi
+
+
 # ----------------------------------------------------------------- provenance
 # So a restore can be traced to a deploy, and a backup that turns out to be broken can be
 # matched to the release that produced it.

@@ -8,7 +8,14 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 
-import { Leads, Reviews, Specials, Staff } from "./collections/content";
+import {
+  Leads,
+  PreviewVisits,
+  Reviews,
+  Specials,
+  Staff,
+  TradeInPhotos,
+} from "./collections/content";
 import { Media } from "./collections/Media";
 import { Models } from "./collections/Models";
 import { Users } from "./collections/Users";
@@ -62,7 +69,18 @@ export default buildConfig({
     avatar: "default",
     dateFormat: "d MMM yyyy, HH:mm",
   },
-  collections: [Vehicles, Models, Specials, Reviews, Staff, Leads, Media, Users],
+  collections: [
+    Vehicles,
+    Models,
+    Specials,
+    Reviews,
+    Staff,
+    Leads,
+    TradeInPhotos,
+    Media,
+    Users,
+    PreviewVisits,
+  ],
   globals: [Dealer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

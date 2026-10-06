@@ -156,6 +156,62 @@ export const Leads: CollectionConfig = {
       required: true,
       admin: { readOnly: true, description: "Agreed to be contacted (POPIA)." },
     },
+    {
+      name: "photos",
+      type: "upload",
+      relationTo: "trade-in-photos",
+      hasMany: true,
+      label: "Trade-in photos",
+      admin: { description: "Photos the customer uploaded with a trade-in request." },
+    },
     { name: "notes", type: "textarea", label: "Internal notes" },
+  ],
+};
+
+/**
+ * Photos customers upload with a trade-in request. PRIVATE: only signed-in staff can see them
+ * (Payload checks read access on the file route too). Renditions are written once at upload.
+ */
+export const TradeInPhotos: CollectionConfig = {
+  slug: "trade-in-photos",
+  labels: { singular: "Trade-in photo", plural: "Trade-in photos" },
+  admin: { group: "Leads", defaultColumns: ["filename", "alt", "createdAt"] },
+  access: { read: signedIn, create: () => false, update: signedIn, delete: signedIn },
+  upload: {
+    staticDir: "trade-in-photos",
+    imageSizes: [
+      { name: "thumb", width: 400 },
+      { name: "large", width: 1600 },
+    ],
+    adminThumbnail: "thumb",
+    mimeTypes: ["image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"],
+    formatOptions: { format: "webp", options: { quality: 80 } },
+  },
+  fields: [{ name: "alt", type: "text", required: true, label: "Description" }],
+};
+
+/** Every time a preview link is used: who (by code), when, from where. Read-only in the admin. */
+export const PreviewVisits: CollectionConfig = {
+  slug: "preview-visits",
+  labels: { singular: "Preview visit", plural: "Preview visits" },
+  defaultSort: "-createdAt",
+  admin: {
+    group: "Settings",
+    useAsTitle: "viewer",
+    defaultColumns: ["viewer", "code", "ip", "device", "createdAt"],
+    description: "Each time someone opens a private preview link.",
+  },
+  access: { read: signedIn, create: () => false, update: () => false, delete: signedIn },
+  fields: [
+    { name: "viewer", type: "text", required: true },
+    { name: "code", type: "text", required: true, index: true },
+    { name: "ip", type: "text" },
+    { name: "device", type: "text" },
+    {
+      name: "outcome",
+      type: "select",
+      defaultValue: "granted",
+      options: ["granted", "refused", "expired"],
+    },
   ],
 };

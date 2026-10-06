@@ -15,6 +15,7 @@ export const Media: CollectionConfig = {
   admin: { group: "Content", defaultColumns: ["filename", "alt", "createdAt"] },
   access: { read: () => true, create: signedIn, update: signedIn, delete: signedIn },
   upload: {
+    staticDir: "media",
     imageSizes: [
       { name: "thumb", width: 400 },
       { name: "card", width: 800 },

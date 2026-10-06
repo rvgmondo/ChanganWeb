@@ -138,7 +138,7 @@ if [ -d "$REPO/public" ]; then cp -R "$REPO/public" "$APP/"; fi
 
 # Uploads and the Passenger restart file. `-p` so an existing media directory with live
 # photographs in it is left exactly alone.
-mkdir -p "$APP/media" "$APP/tmp"
+mkdir -p "$APP/media" "$APP/trade-in-photos" "$APP/tmp"
 
 # A checkout can arrive with the execute bit set on things that should not have it.
 # node_modules is pruned: it is 74 000 files, re-permissioning it every deploy is minutes of

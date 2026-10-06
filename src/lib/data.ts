@@ -21,6 +21,7 @@ export type ModelView = {
   world: Img;
   portrait: Img;
   interior?: Img;
+  colours: { name: string; hex: string; cutout?: Img }[];
 };
 export type VehicleView = {
   id: string;
@@ -38,6 +39,15 @@ export type VehicleView = {
   colourHex: string;
   photo?: Img;
   featured: boolean;
+  modelSlug: string;
+  stockNumber?: string;
+  status: "available" | "reserved" | "sold";
+};
+export type VehicleDetail = VehicleView & {
+  photos: Img[];
+  description?: string;
+  features: string[];
+  title: string;
 };
 export type ReviewView = {
   id: string;
@@ -89,6 +99,11 @@ const toModel = (m: Model): ModelView | null => {
     world,
     portrait,
     interior: img(m.interior, 1600),
+    colours: (m.colours ?? []).map((c) => ({
+      name: c.name,
+      hex: c.hex,
+      cutout: img(c.cutout, 1200),
+    })),
   };
 };
 
@@ -108,7 +123,64 @@ const toVehicle = (v: Vehicle): VehicleView => ({
   colourHex: v.colourHex ?? "#c9ced6",
   photo: img(Array.isArray(v.photos) ? v.photos[0] : undefined, 800),
   featured: Boolean(v.featured),
+  modelSlug: typeof v.model === "object" && v.model ? (v.model.slug ?? "") : "",
+  stockNumber: v.stockNumber ?? undefined,
+  status: v.status,
 });
+
+const toDetail = (v: Vehicle): VehicleDetail => ({
+  ...toVehicle(v),
+  title: v.title ?? "",
+  photos: (Array.isArray(v.photos) ? v.photos : [])
+    .map((p) => img(p, 1600))
+    .filter((p): p is Img => Boolean(p)),
+  description: v.description ?? undefined,
+  features: (v.features ?? []).map((f) => f.feature),
+});
+
+const AVAILABLE = { status: { not_equals: "sold" } } as const;
+
+/** Every car on the site. Stock is a few hundred at most, so search and facets run in memory. */
+export async function getAllStock(): Promise<VehicleView[]> {
+  const payload = await getPayload({ config });
+  const res = await payload.find({
+    collection: "vehicles",
+    where: AVAILABLE,
+    sort: ["-featured", "-updatedAt"],
+    depth: 1,
+    limit: 1000,
+    pagination: false,
+  });
+  return res.docs.map(toVehicle);
+}
+
+export async function getVehicle(slug: string): Promise<VehicleDetail | null> {
+  const payload = await getPayload({ config });
+  const res = await payload.find({
+    collection: "vehicles",
+    where: { and: [{ slug: { equals: slug } }, AVAILABLE] },
+    depth: 1,
+    limit: 1,
+  });
+  const v = res.docs[0];
+  return v ? toDetail(v) : null;
+}
+
+export async function getModels(): Promise<ModelView[]> {
+  const payload = await getPayload({ config });
+  const res = await payload.find({
+    collection: "models",
+    where: { published: { equals: true } },
+    sort: "order",
+    depth: 1,
+    limit: 50,
+  });
+  return res.docs.map(toModel).filter((m): m is ModelView => m !== null);
+}
+
+export async function getModel(slug: string): Promise<ModelView | null> {
+  return (await getModels()).find((m) => m.slug === slug) ?? null;
+}
 
 export async function getHomeData() {
   const payload = await getPayload({ config });

@@ -52,7 +52,7 @@ export function SiteFooter({ dealer }: { dealer: Dealer }) {
             <h4>Buy</h4>
             <ul>
               <li>
-                <a href="/#stock">In stock</a>
+                <a href="/stock">In stock</a>
               </li>
               <li>
                 <a href="/#finance">Finance</a>
